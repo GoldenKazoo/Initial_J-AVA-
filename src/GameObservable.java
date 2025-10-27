@@ -28,4 +28,13 @@ public class GameObservable implements Observable
     {
         return obs;
     }
+
+    public void moove_car()
+    {
+        for (Voiture v : car)
+        {
+            v.moove();
+        }
+        notify_obs();
+    }
 }
