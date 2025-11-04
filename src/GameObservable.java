@@ -1,40 +1,41 @@
+import java.util.List;
+import java.util.Random;
+import java.util.ArrayList;
+
 public class GameObservable implements Observable
 {
-    private List<GameObservateur>   obs = new ArrayList<>();
-    private List<Voiture>           car = new ArrayList<>();
+    private List<Observateur> obs = new ArrayList<>();
+    private List<Voiture> car = new ArrayList<>();
+    private Random random_nb = new Random();
 
-    public void add_obs(GameObservateur o)
-    {
+    public void add_obs(Observateur o) {
         obs.add(o);
     }
-    public void remove_obs(GameObservateur o)
-    {
+
+    public void remove_obs(Observateur o) {
         obs.remove(o);
     }
-    public void notify_obs()
-    {
-        for (GameObservateur obs : observateurs)
-        {
-            obs.update(); // On notifie les Views pour les mettre a jour
+
+    @Override
+    public void notify_obs() {
+        for (Observateur o : obs) {
+            o.update(this); // On notifie les Views pour les mettre à jour
         }
     }
 
-    public ArrayList<Voiture> get_voitures()
-    {
+    public List<Voiture> get_voitures() {
         return car;
     }
 
-    public ArrayList<GameObservateur> get_obs()
-    {
+    public List<Observateur> get_obs() {
         return obs;
     }
 
-    public void moove_car()
-    {
+    public void moove_car() {
         for (Voiture v : car)
         {
-            v.moove();
+            v.moove(random_nb.nextInt(6));
         }
-        notify_obs();
+        notify_obs(); // pas de paramètre
     }
 }
