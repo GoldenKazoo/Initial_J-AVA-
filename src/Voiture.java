@@ -9,9 +9,13 @@ public class Voiture
         this.name = name;
     }
 
+    public String who ()
+    {
+        return (this.name);
+    }
     public void moove (int random_nb)
     {
-        this.total_distance += random_nb;
-        gas_left -= 2;
+        this.total_distance = this.total_distance + random_nb;
+        gas_left = this.gas_left - 2;
     }
 }
