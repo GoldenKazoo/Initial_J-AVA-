@@ -1,6 +1,8 @@
 public class App {
     
     public static void main(String[] args) {
-        new GameView();
+        GameObservable game_observable = new GameObservable();
+        new GameView(game_observable);
+
     }
 }

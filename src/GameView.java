@@ -3,16 +3,19 @@ import java.awt.Graphics;
 import java.awt.Color;
 import javax.swing.JFrame;
 
-public class GameView extends JComponent /*implements GameObservateur*/{
+public class GameView extends JComponent implements Observateur{
     private int cellSize = 50;
     final int NB_CASES_X = 20;
     final int NB_CASES_Y = 10;
 
-    public GameView(/*GameObservable gameObservable*/){
-        //gameObservable.addObserver(this); // Je m'ajoute
+    public GameView(GameObservable gameObservable){
+        gameObservable.add_obs(this); // Je m'ajoute
         launchGame();
     }
-
+    public void update(GameObservable observable)
+    {
+        this.update(observable);
+    }
     public void launchGame(){
         JFrame frame = new JFrame("GameView");
         frame.setSize(cellSize * NB_CASES_X, cellSize * NB_CASES_Y);
