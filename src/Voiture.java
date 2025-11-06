@@ -28,6 +28,10 @@ public class Voiture
         return gas_left;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     public int getPositionIndex()
     {
         return position % 54;

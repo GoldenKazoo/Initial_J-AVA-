@@ -9,6 +9,7 @@ public class GameObservable implements Observable
     private List<Voiture> car = new ArrayList<>();
     private Random random_nb = new Random();
     private ArrayList<Coordonnee> piste = new ArrayList<>();
+    private Voiture[] ranking;
 
     public GameObservable()
     {
@@ -16,7 +17,17 @@ public class GameObservable implements Observable
         car.add(new Voiture("Rouge", Color.RED));
         car.add(new Voiture("Bleu", Color.BLUE));
         car.add(new Voiture("Vert", Color.GREEN));
+        createRanking();
+        
     }
+
+    private void createRanking(){
+        this.ranking = new Voiture[car.size()];
+        for(int i = 0; i < this.ranking.length; i++){
+            this.ranking[i] = car.get(i);
+        }
+    }
+
 
     public ArrayList<Coordonnee> getPiste()
     {
@@ -38,7 +49,7 @@ public class GameObservable implements Observable
     {
         for (Observateur x : obs)
         {
-            o.update(this);
+            x.update(this);
         }
     }
 
@@ -52,6 +63,11 @@ public class GameObservable implements Observable
         return obs;
     }
 
+    public Voiture[] getRanking() {
+        return ranking;
+    }
+
+
     public void moove_car()
     {
         for (Voiture v : car)
@@ -60,9 +76,23 @@ public class GameObservable implements Observable
             {
                 int step = random_nb.nextInt(6) + 1; // avance de 1 à 6 cases
                 v.moove(step, piste.size());
+                updateRanking();
             }
         }
+        
         notify_obs();
+    }
+
+    private void updateRanking(){
+        int n = this.ranking.length;
+        for (int i = 0; i < n - 1; i++)
+            for (int j = 0; j < n - i - 1; j++)
+                if (this.ranking[j].getPosition() < this.ranking[j + 1].getPosition()) {
+
+                    Voiture temp = this.ranking[j];
+                    this.ranking[j] = this.ranking[j + 1];
+                    this.ranking[j + 1] = temp;
+                }
     }
 
     private void creerPiste() {
