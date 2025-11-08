@@ -38,7 +38,7 @@ public class GameObservable implements Observable
     {
         for (Observateur x : obs)
         {
-            o.update(this);
+            x.update(this);
         }
     }
 
