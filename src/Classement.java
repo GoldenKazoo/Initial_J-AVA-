@@ -1,9 +1,8 @@
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Classement extends JComponent implements Observateur {
+public class Classement implements Observateur {
     private GameObservable observable;
     private JLabel labels[];
     private JFrame frame;
