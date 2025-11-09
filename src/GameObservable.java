@@ -107,33 +107,33 @@ public class GameObservable implements Observable
     }
     private void creerPiste() {
         for(int i = 18; i > 2; i--){
-            piste.add(new Coordonnee(i, 9, false));
+            piste.add(new Coordonnee(i, 9, false,0));
         }
-        piste.add(new Coordonnee(2, 9, true));
+        piste.add(new Coordonnee(2, 9, true, 5));
         for(int i = 8; i > 3; i--){
-            piste.add(new Coordonnee(2, i, false));
+            piste.add(new Coordonnee(2, i, false,0));
         }
-        piste.add(new Coordonnee(2,3, true));
+        piste.add(new Coordonnee(2,3, true, 3));
         for(int i = 3; i < 13; i++){
-            piste.add(new Coordonnee(i, 3, false));
+            piste.add(new Coordonnee(i, 3, false, 0));
         }
-        piste.add(new Coordonnee(13, 3, true));
-        piste.add(new Coordonnee(13, 4, false));
-        piste.add(new Coordonnee(13, 5, false));
-        piste.add(new Coordonnee(13, 6, true));
-        piste.add(new Coordonnee(14, 6, false));
-        piste.add(new Coordonnee(15, 6, false));
-        piste.add(new Coordonnee(16, 6, true));
+        piste.add(new Coordonnee(13, 3, true, 2));
+        piste.add(new Coordonnee(13, 4, false, 0));
+        piste.add(new Coordonnee(13, 5, false, 0));
+        piste.add(new Coordonnee(13, 6, true, 2));
+        piste.add(new Coordonnee(14, 6, false, 0));
+        piste.add(new Coordonnee(15, 6, false, 0));
+        piste.add(new Coordonnee(16, 6, true, 2));
         for(int i = 5; i > 2; i--)
         {
-            piste.add(new Coordonnee(16, i, false));
+            piste.add(new Coordonnee(16, i, false, 0));
         }
-        piste.add(new Coordonnee(16, 2, true));
-        piste.add(new Coordonnee(17, 2, false));
-        piste.add(new Coordonnee(18, 2, false));
-        piste.add(new Coordonnee(19, 2, true));
+        piste.add(new Coordonnee(16, 2, true, 2));
+        piste.add(new Coordonnee(17, 2, false, 0));
+        piste.add(new Coordonnee(18, 2, false, 0));
+        piste.add(new Coordonnee(19, 2, true, 5));
         for(int i = 3; i < 10; i++){
-            piste.add(new Coordonnee(19, i, false));
+            piste.add(new Coordonnee(19, i, false, 0));
         }
     }
 }

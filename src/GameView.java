@@ -3,6 +3,8 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.JFrame;
 
 public class GameView extends JComponent implements Observateur
@@ -53,6 +55,8 @@ public class GameView extends JComponent implements Observateur
 
 
     private void drawPiste(Graphics g, ArrayList<Coordonnee> piste){
+        Font font = new Font("Arial", Font.BOLD, 26);
+        g.setFont(font);
         // Dessiner la piste
         for (Coordonnee c : piste)
         {
@@ -62,10 +66,21 @@ public class GameView extends JComponent implements Observateur
             {
                 g.setColor(Color.YELLOW);
                 g.fillRect((c.getX()-1) * cellSize + 5, (c.getY()-1) * cellSize + 5, cellSize - 10, cellSize - 10);
+                g.setColor(Color.BLACK);
+                g.drawString(String.valueOf(c.getId()), (c.getX()-1) * cellSize + 15, c.getY() * cellSize - 15);
             }
         }
-    }
 
+        // Départ et Arrivée
+        g.setColor(Color.YELLOW);
+        g.fillRect((piste.get(0).getX()-1) * cellSize, (piste.get(0).getY()-1) * cellSize, cellSize, cellSize);
+        g.fillRect((piste.get(piste.size()-1).getX()-1) * cellSize, (piste.get(piste.size()-1).getY()-1) * cellSize, cellSize, cellSize);
+
+        
+        g.setColor(Color.BLACK);
+        g.drawString("D", (piste.get(0).getX()-1) * cellSize + 15, (piste.get(0).getY()) * cellSize - 15);
+        g.drawString("A", (piste.get(piste.size()-1).getX()-1) * cellSize + 15, (piste.get(piste.size()-1).getY()) * cellSize - 15);
+    }
     
 
     private void drawGrid(Graphics g, int x, int y)
