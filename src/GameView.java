@@ -1,5 +1,7 @@
 import javax.swing.JComponent;
 import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.Color;
 import javax.swing.JFrame;
 
@@ -20,7 +22,7 @@ public class GameView extends JComponent implements Observateur
     @Override
     public void update(GameObservable observable)
     {
-        repaint(); // redessine la vue quand on updatwe
+        repaint(); // redessine la vue quand on update
     }
 
     public void launchGame()
@@ -35,45 +37,36 @@ public class GameView extends JComponent implements Observateur
 
     @Override
     protected void paintComponent(Graphics g) {
-    super.paintComponent(g);
+        super.paintComponent(g);
 
-    // fod vert + grille
-    g.setColor(Color.GREEN);
-    g.fillRect(0, 0, cellSize * NB_CASES_X, cellSize * NB_CASES_Y);
-    g.setColor(Color.BLACK);
+        g.setColor(Color.GREEN);
+        g.fillRect(0, 0, cellSize * NB_CASES_X, cellSize * NB_CASES_Y);
+        g.setColor(Color.BLACK);
 
-    // Dessiner la piste
-    for (Coordonnee c : observable.getPiste())
-    {
-        if (c.getVirage())
-        {
-            g.setColor(Color.YELLOW); // virage = jaune
-        }
-        else
-        {
-            g.setColor(Color.GRAY); // route normale
-        }
-        g.fillRect(c.getX() * cellSize, c.getY() * cellSize, cellSize, cellSize);
+        drawPiste(g, observable.getPiste());
+
+        drawCars(g, observable.get_voitures(), observable.getPiste());
+
+        g.setColor(Color.BLACK);
+        drawGrid(g, cellSize * NB_CASES_X, cellSize * NB_CASES_Y);
     }
 
-    //Dessier voitures
-    int decalage = 10;
-    for (Voiture v : observable.get_voitures())
-    {
-        int index = v.getPositionIndex();
-        if (index < observable.getPiste().size())
+
+    private void drawPiste(Graphics g, ArrayList<Coordonnee> piste){
+        // Dessiner la piste
+        for (Coordonnee c : piste)
         {
-            Coordonnee c = observable.getPiste().get(index);
-            g.setColor(v.getColor());
-            g.fillOval(c.getX() * cellSize + decalage, c.getY() * cellSize + decalage, 
-                       cellSize - 20, cellSize - 20);
-            decalage += 10; // pour eviter la superpo
+            g.setColor(Color.GRAY);
+            g.fillRect((c.getX()-1) * cellSize, (c.getY()-1) * cellSize, cellSize, cellSize);
+            if (c.getVirage())
+            {
+                g.setColor(Color.YELLOW);
+                g.fillRect((c.getX()-1) * cellSize + 5, (c.getY()-1) * cellSize + 5, cellSize - 10, cellSize - 10);
+            }
         }
     }
-    g.setColor(Color.BLACK);
-    drawGrid(g, cellSize * NB_CASES_X, cellSize * NB_CASES_Y);
-    }
 
+    
 
     private void drawGrid(Graphics g, int x, int y)
     {
@@ -84,6 +77,23 @@ public class GameView extends JComponent implements Observateur
         for(int i = 0; i < (y / cellSize); i++)
         {
             g.drawLine(0, i * cellSize, x, i * cellSize);
+        }
+    }
+
+    private void drawCars(Graphics g, List<Voiture> voitures, List<Coordonnee> piste){
+        //Dessier voitures
+        int decalage = 10;
+        for (Voiture v : voitures)
+        {
+            int index = v.getPositionIndex();
+            if (index < piste.size())
+            {
+                Coordonnee c = piste.get(index);
+                g.setColor(v.getColor());
+                g.fillOval((c.getX()-1) * cellSize + decalage, (c.getY()-1) * cellSize + decalage, 
+                        cellSize - 20, cellSize - 20);
+                decalage += 5; // pour eviter la superpo
+            }
         }
     }
 
