@@ -10,6 +10,7 @@ public class GameObservable implements Observable
     private Random random_nb = new Random();
     private ArrayList<Coordonnee> piste = new ArrayList<>();
     private Voiture[] ranking;
+    private boolean paused = false;
 
     public GameObservable()
     {
@@ -87,7 +88,7 @@ public class GameObservable implements Observable
         int n = this.ranking.length;
         for (int i = 0; i < n - 1; i++)
             for (int j = 0; j < n - i - 1; j++)
-                if (this.ranking[j].getPosition() < this.ranking[j + 1].getPosition()) {
+                if (this.ranking[j].getPositionIndex() < this.ranking[j + 1].getPositionIndex()) {
 
                     Voiture temp = this.ranking[j];
                     this.ranking[j] = this.ranking[j + 1];
@@ -95,6 +96,15 @@ public class GameObservable implements Observable
                 }
     }
 
+    public boolean is_paused()
+    {
+        return paused;
+    }
+
+    public void toggle_pause()
+    {
+        paused = !paused;
+    }
     private void creerPiste() {
         for(int i = 18; i > 2; i--){
             piste.add(new Coordonnee(i, 9, false));

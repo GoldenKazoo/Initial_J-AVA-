@@ -32,7 +32,7 @@ public class Classement implements Observateur {
 
     private void drawRanking(){
         for(int i = 0; i < this.labels.length; i++){
-            labels[i].setText("Numéro " + String.valueOf(i+1) + " : " + this.observable.getRanking()[i].who() + " | Position : " + this.observable.getRanking()[i].getPosition());
+            labels[i].setText("Numéro " + String.valueOf(i+1) + " : " + this.observable.getRanking()[i].who() + " | Position : " + this.observable.getRanking()[i].getPositionIndex());
         }
     }
 

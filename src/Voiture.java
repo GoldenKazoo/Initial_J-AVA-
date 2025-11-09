@@ -6,6 +6,7 @@ public class Voiture
     private int position = 0;
     private int gas_left = 60;
     private Color color;
+    private int     laps = 0;
 
     public Voiture(String name, Color color)
     {
@@ -28,10 +29,6 @@ public class Voiture
         return gas_left;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
     public int getPositionIndex()
     {
         return position % 54;
@@ -44,5 +41,11 @@ public class Voiture
             position += random_nb;
             gas_left -= 2;
         }
+    }
+
+    public int get_laps()
+    {
+        laps = position / 54;
+        return laps;
     }
 }
