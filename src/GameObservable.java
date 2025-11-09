@@ -88,7 +88,7 @@ public class GameObservable implements Observable
         int n = this.ranking.length;
         for (int i = 0; i < n - 1; i++)
             for (int j = 0; j < n - i - 1; j++)
-                if (this.ranking[j].getPositionIndex() < this.ranking[j + 1].getPositionIndex()) {
+                if (this.ranking[j].getPosition() < this.ranking[j + 1].getPosition()) {
 
                     Voiture temp = this.ranking[j];
                     this.ranking[j] = this.ranking[j + 1];

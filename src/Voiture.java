@@ -33,7 +33,10 @@ public class Voiture
     {
         return position % 54;
     }
-
+    public int getPosition()
+    {
+        return(position);
+    }
     public void moove(int random_nb, int pisteSize)
     {
         if (gas_left > 0)
