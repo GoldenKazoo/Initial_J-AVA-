@@ -5,7 +5,7 @@ import java.awt.event.*;
 public class DashboardView extends JFrame implements Observateur {
     private Voiture voiture;
     private GameObservable game;
-    private JLabel fuelLabel;
+    private JLabel gasLabel;
     private JLabel lapLabel;
     private JButton pauseButton;
 
@@ -20,15 +20,26 @@ public class DashboardView extends JFrame implements Observateur {
         setSize(250, 150);
         getContentPane().setBackground(v.getColor());
         setLayout(new GridLayout(3, 1));
-
-        fuelLabel = new JLabel("Carburant restant : " + v.getGasLeft());
+        if (this.voiture.getColor() == Color.RED)
+        {
+            setLocation(1100, 100);
+        }
+        else if (this.voiture.getColor() == Color.BLUE)
+        {
+            setLocation(1100, 500);
+        }
+        else
+        {
+            setLocation(1100, 900);
+        }
+        gasLabel = new JLabel("Carburant restant : " + v.getGasLeft());
         lapLabel = new JLabel("Tours réalisés : " + v.get_laps());
         pauseButton = new JButton("Pause | Reprendre");
 
-        fuelLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        gasLabel.setHorizontalAlignment(SwingConstants.CENTER);
         lapLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-        add(fuelLabel);
+        add(gasLabel);
         add(lapLabel);
         add(pauseButton);
 
@@ -46,7 +57,7 @@ public class DashboardView extends JFrame implements Observateur {
     @Override
     public void update(GameObservable observable)
     {
-        fuelLabel.setText("Carburant restant : " + voiture.getGasLeft());
+        gasLabel.setText("Carburant restant : " + voiture.getGasLeft());
         lapLabel.setText("Tours réalisés : " + voiture.get_laps());
     }
 }

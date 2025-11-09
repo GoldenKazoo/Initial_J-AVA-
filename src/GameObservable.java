@@ -12,14 +12,24 @@ public class GameObservable implements Observable
     private Voiture[] ranking;
     private boolean paused = false;
 
-    public GameObservable()
+    public GameObservable(int nb_voitures)
     {
         creerPiste();
-        car.add(new Voiture("Rouge", Color.RED));
-        car.add(new Voiture("Bleu", Color.BLUE));
-        car.add(new Voiture("Vert", Color.GREEN));
+        switch (nb_voitures) {
+            case 1:
+                car.add(new Voiture("Rouge", Color.RED));
+                break;
+            case 2:
+                car.add(new Voiture("Rouge", Color.RED));
+                car.add(new Voiture("Bleu", Color.BLUE));
+                break;
+            case 3:
+                car.add(new Voiture("Rouge", Color.RED));
+                car.add(new Voiture("Bleu", Color.BLUE));
+                car.add(new Voiture("Orange", Color.ORANGE));
+                break;
+        }
         createRanking();
-        
     }
 
     private void createRanking(){

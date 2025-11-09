@@ -31,7 +31,7 @@ public class Voiture
 
     public int getPositionIndex()
     {
-        return position % 54;
+        return position % 53;
     }
     public int getPosition()
     {
@@ -48,7 +48,7 @@ public class Voiture
 
     public int get_laps()
     {
-        laps = position / 54;
+        laps = position / 53;
         return laps;
     }
 }
