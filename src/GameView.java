@@ -24,7 +24,7 @@ public class GameView extends JComponent implements Observateur
     @Override
     public void update(GameObservable observable)
     {
-        repaint(); // redessine la vue quand on update
+        repaint();
     }
 
     public void launchGame()

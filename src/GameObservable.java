@@ -15,7 +15,8 @@ public class GameObservable implements Observable
     public GameObservable(int nb_voitures)
     {
         creerPiste();
-        switch (nb_voitures) {
+        switch (nb_voitures)
+        {
             case 1:
                 car.add(new Voiture("Rouge", Color.RED));
                 break;
@@ -115,7 +116,8 @@ public class GameObservable implements Observable
     {
         paused = !paused;
     }
-    private void creerPiste() {
+    private void creerPiste()
+    {
         for(int i = 18; i > 2; i--){
             piste.add(new Coordonnee(i, 9, false,0));
         }

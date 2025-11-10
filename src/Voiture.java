@@ -6,7 +6,7 @@ public class Voiture
     private int position = 0;
     private int gas_left = 60;
     private Color color;
-    private int     laps = 0;
+    private int laps = 0;
 
     public Voiture(String name, Color color)
     {

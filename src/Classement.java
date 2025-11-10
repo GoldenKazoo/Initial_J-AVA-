@@ -38,7 +38,6 @@ public class Classement implements Observateur {
 
     @Override
     public void update(GameObservable observable){
-        //repaint();
         drawRanking();
     }
 }
