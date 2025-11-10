@@ -20,6 +20,7 @@ public class App
             }
             nbVoitures = Integer.parseInt(input);
         }
+        
 
         GameObservable game = new GameObservable(nbVoitures);
         new GameView(game);
@@ -30,12 +31,14 @@ public class App
             new DashboardView(game, v);
         }
         
-        // loop du jeu
-        for (int i = 0; i < 30; i++)
+        int i = 0;
+
+        while (i < 30)
         {
             if (!game.is_paused())
             {
                 game.moove_car();
+                i++;
             }
             try
             {
