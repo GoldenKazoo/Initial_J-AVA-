@@ -8,6 +8,8 @@ public class DashboardView extends JFrame implements Observateur {
     private JLabel gasLabel;
     private JLabel lapLabel;
     private JButton pauseButton;
+    private JButton slowdown;
+    private JButton speedup;
 
     public DashboardView(GameObservable game, Voiture v)
     {
@@ -19,7 +21,7 @@ public class DashboardView extends JFrame implements Observateur {
         setTitle("Tableau de bord - " + v.who());
         setSize(250, 150);
         getContentPane().setBackground(v.getColor());
-        setLayout(new GridLayout(3, 1));
+        setLayout(new GridLayout(5, 1));
         if (this.voiture.getColor() == Color.RED)
         {
             setLocation(1100, 100);
@@ -35,6 +37,8 @@ public class DashboardView extends JFrame implements Observateur {
         gasLabel = new JLabel("Carburant restant : " + v.getGasLeft());
         lapLabel = new JLabel("Tours réalisés : " + v.get_laps());
         pauseButton = new JButton("Pause | Reprendre");
+        slowdown = new JButton("Ralentir");
+        speedup = new JButton("Accelerer");
 
         gasLabel.setHorizontalAlignment(SwingConstants.CENTER);
         lapLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -42,6 +46,8 @@ public class DashboardView extends JFrame implements Observateur {
         add(gasLabel);
         add(lapLabel);
         add(pauseButton);
+        add(slowdown);
+        add(speedup);
 
         pauseButton.addActionListener(new ActionListener() {
             @Override
