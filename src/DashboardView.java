@@ -56,18 +56,20 @@ public class DashboardView extends JFrame implements Observateur {
                 game.toggle_pause();
             }
         });
+
         slowdown.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                game.toggle_pause();
+                voiture.state.decelerate(voiture);
             }
         });
+
         speedup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                game.toggle_pause();
+                voiture.state.accelerate(voiture);
             }
         });
         setVisible(true);

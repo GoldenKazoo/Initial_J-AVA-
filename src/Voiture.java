@@ -7,11 +7,13 @@ public class Voiture
     private int gas_left = 60;
     private Color color;
     private int laps = 0;
+    public State state;
 
     public Voiture(String name, Color color)
     {
         this.name = name;
         this.color = color;
+        this.state = new StateNormal();
     }
 
     public String who()
@@ -29,26 +31,40 @@ public class Voiture
         return gas_left;
     }
 
+    public void setGas(int nb)
+    {
+        gas_left -= nb;
+        System.out.println(name + " a encore " + gas_left);
+    }
+
     public int getPositionIndex()
     {
         return position % 53;
     }
+
     public int getPosition()
     {
         return(position);
     }
+
+    public void setPosition(int position)
+    {
+      this.position = position;
+    }
+    
     public void moove(int random_nb, int pisteSize)
     {
-        if (gas_left > 0)
-        {
-            position += random_nb;
-            gas_left -= 2;
-        }
+        state.moove(this);
     }
 
     public int get_laps()
     {
         laps = position / 53;
         return laps;
+    }
+
+    public void set_state(State new_state)
+    {
+        this.state = new_state;
     }
 }
