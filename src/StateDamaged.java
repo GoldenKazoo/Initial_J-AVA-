@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class StateDamaged implements State
 {
     int turns = 0;

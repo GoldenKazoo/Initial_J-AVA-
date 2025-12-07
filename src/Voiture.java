@@ -31,7 +31,7 @@ public class Voiture
         return gas_left;
     }
 
-    public void setGas(int nb)
+    public void decreaseGas(int nb)
     {
         gas_left -= nb;
         System.out.println(name + " a encore " + gas_left);

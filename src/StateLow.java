@@ -11,8 +11,8 @@ public class StateLow implements State
         rdm = new Random();
         if (context.getGasLeft() > 0)
         {
-            position += rdm.nextInt(3);
-            context.setGas(1);
+            position += rdm.nextInt(1, 4); // 3 inclus 
+            context.decreaseGas(1);
         }
         context.setPosition(position);
     }

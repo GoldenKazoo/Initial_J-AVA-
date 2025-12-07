@@ -11,8 +11,8 @@ public class StateNormal implements State
         rdm = new Random();
         if (context.getGasLeft() > 0)
         {
-            position += rdm.nextInt(6);
-            context.setGas(2);
+            position += rdm.nextInt(1, 7); // 6 inclus
+            context.decreaseGas(2);
         }
         context.setPosition(position);
     }

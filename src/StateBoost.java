@@ -11,8 +11,8 @@ public class StateBoost implements State
         rdm = new Random();
         if (context.getGasLeft() > 0)
         {
-            position += rdm.nextInt(5,10);
-            context.setGas(10);
+            position += rdm.nextInt(5,10); // 10 inclus
+            context.decreaseGas(5);
         }
         context.setPosition(position);
     }
