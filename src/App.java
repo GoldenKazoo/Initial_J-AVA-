@@ -26,7 +26,7 @@ public class App
         new GameView(game);
         new Classement(game);
         
-        for (Voiture v : game.get_voitures())
+        for (IVoiture v : game.get_voitures())
         {
             new DashboardView(game, v);
         }

@@ -6,10 +6,10 @@ import java.awt.Color;
 public class GameObservable implements Observable
 {
     private List<Observateur> obs = new ArrayList<>();
-    private List<Voiture> car = new ArrayList<>();
+    private List<IVoiture> car = new ArrayList<>();
     private Random random_nb = new Random();
     private ArrayList<Coordonnee> piste = new ArrayList<>();
-    private Voiture[] ranking;
+    private IVoiture[] ranking;
     private boolean paused = false;
 
     public GameObservable(int nb_voitures)
@@ -18,7 +18,8 @@ public class GameObservable implements Observable
         switch (nb_voitures)
         {
             case 1:
-                car.add(new Voiture("Rouge", Color.RED));
+                //car.add(new Voiture("Rouge", Color.RED));
+                car.add(new IvreVoiture(new Voiture("Rouge", Color.RED)));
                 break;
             case 2:
                 car.add(new Voiture("Rouge", Color.RED));
@@ -34,7 +35,7 @@ public class GameObservable implements Observable
     }
 
     private void createRanking(){
-        this.ranking = new Voiture[car.size()];
+        this.ranking = new IVoiture[car.size()];
         for(int i = 0; i < this.ranking.length; i++){
             this.ranking[i] = car.get(i);
         }
@@ -65,7 +66,7 @@ public class GameObservable implements Observable
         }
     }
 
-    public List<Voiture> get_voitures()
+    public List<IVoiture> get_voitures()
     {
         return car;
     }
@@ -75,14 +76,14 @@ public class GameObservable implements Observable
         return obs;
     }
 
-    public Voiture[] getRanking() {
+    public IVoiture[] getRanking() {
         return ranking;
     }
 
 
     public void moove_car()
     {
-        for (Voiture v : car)
+        for (IVoiture v : car)
         {
             if (v.getGasLeft() > 0)
             {
@@ -101,7 +102,7 @@ public class GameObservable implements Observable
             for (int j = 0; j < n - i - 1; j++)
                 if (this.ranking[j].getPosition() < this.ranking[j + 1].getPosition()) {
 
-                    Voiture temp = this.ranking[j];
+                    IVoiture temp = this.ranking[j];
                     this.ranking[j] = this.ranking[j + 1];
                     this.ranking[j + 1] = temp;
                 }

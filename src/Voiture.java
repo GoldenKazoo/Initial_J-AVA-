@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class Voiture
+public class Voiture implements IVoiture
 {
     private String name;
     private int position = 0;
@@ -66,5 +66,15 @@ public class Voiture
     public void set_state(State new_state)
     {
         this.state = new_state;
+    }
+
+    @Override
+    public void accelerate() {
+        state.accelerate(this);
+    }
+
+    @Override
+    public void decelerate() {
+        state.decelerate(this);
     }
 }
