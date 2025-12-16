@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class StateLow implements State
 {
-    public void moove(Voiture context)
+    public void moove(IVoiture context)
     {
         Random rdm;
         int position;
@@ -17,21 +17,26 @@ public class StateLow implements State
         context.setPosition(position);
     }
 
-    public void change_state(Voiture context)
+    public void change_state(IVoiture context)
     {
 
     }
 
-    public void show_state(Voiture context)
+    public void show_state(IVoiture context)
     {
 
     }
-    public void accelerate(Voiture context)
+    public void accelerate(IVoiture context)
     {
         context.set_state(new StateNormal());
     }
-    public void decelerate(Voiture context)
+    public void decelerate(IVoiture context)
     {
         context.set_state(new StateStoped());
+    }
+
+    public String get_name()
+    {
+        return "LOW";
     }
 }

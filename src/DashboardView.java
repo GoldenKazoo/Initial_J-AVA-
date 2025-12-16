@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class DashboardView extends JFrame implements Observateur {
-    private Voiture voiture;
+    private IVoiture voiture;
     private GameObservable game;
     private JLabel gasLabel;
     private JLabel lapLabel;
@@ -11,7 +11,7 @@ public class DashboardView extends JFrame implements Observateur {
     private JButton slowdown;
     private JButton speedup;
 
-    public DashboardView(GameObservable game, Voiture v)
+    public DashboardView(GameObservable game, IVoiture v)
     {
         this.game = game;
         this.voiture = v;
@@ -61,7 +61,7 @@ public class DashboardView extends JFrame implements Observateur {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                voiture.state.decelerate(voiture);
+                voiture.get_state().decelerate(voiture);
             }
         });
 
@@ -69,7 +69,7 @@ public class DashboardView extends JFrame implements Observateur {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                voiture.state.accelerate(voiture);
+                voiture.get_state().accelerate(voiture);
             }
         });
         setVisible(true);
