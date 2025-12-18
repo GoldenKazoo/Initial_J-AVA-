@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class StateBoost implements State
 {
-    public void moove(IVoiture context)
+    public void moove(Voiture context)
     {
         Random rdm;
         int position;
@@ -17,26 +17,21 @@ public class StateBoost implements State
         context.setPosition(position);
     }
 
-    public void change_state(IVoiture context)
+    public void change_state(Voiture context)
     {
 
     }
 
-    public void show_state(IVoiture context)
+    public void show_state(Voiture context)
     {
 
     }
-    public void accelerate(IVoiture context)
+    public void accelerate(Voiture context)
     {
         System.out.println("Can't get faster ! Do some drifts to be faster");
     }
-    public void decelerate(IVoiture context)
+    public void decelerate(Voiture context)
     {
         context.set_state(new StateNormal());
-    }
-
-    public String get_name()
-    {
-        return "BOOST";
     }
 }

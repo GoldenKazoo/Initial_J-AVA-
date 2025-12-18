@@ -1,9 +1,8 @@
 public interface State
 
 {
-    void moove(IVoiture car);
-    void show_state(IVoiture car);
-    public void accelerate(IVoiture car);
-    public void decelerate(IVoiture car);
-    public String get_name ();
+    void moove(Voiture car);
+    void show_state(Voiture car);
+    public void accelerate(Voiture car);
+    public void decelerate(Voiture car);
 }

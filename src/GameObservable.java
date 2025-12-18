@@ -22,8 +22,8 @@ public class GameObservable implements Observable
                 car.add(new HybrideVoiture(new Voiture("Rouge", Color.RED)));
                 break;
             case 2:
-                car.add(new Drunk(new Voiture("Rouge", Color.RED)));
-                car.add(new SoundBooster(new Voiture("Bleu", Color.BLUE)));
+                car.add(new Voiture("Rouge", Color.RED));
+                car.add(new Voiture("Bleu", Color.BLUE));
                 break;
             case 3:
                 car.add(new Voiture("Rouge", Color.RED));

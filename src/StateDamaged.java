@@ -2,7 +2,7 @@ public class StateDamaged implements State
 {
     int turns = 0;
 
-    public void moove(IVoiture context)
+    public void moove(Voiture context)
     {
         if (turns < 5)
         {
@@ -16,21 +16,16 @@ public class StateDamaged implements State
     }
 
 
-    public void show_state(IVoiture context)
+    public void show_state(Voiture context)
     {
 
     }
-    public void accelerate(IVoiture context)
+    public void accelerate(Voiture context)
     {
         System.out.println("You are broken, skill issue !");
     }
-    public void decelerate(IVoiture context)
+    public void decelerate(Voiture context)
     {
         System.out.println("You are broken, skill issue !");
-    }
-
-    public String get_name()
-    {
-        return "DAMAGED";
     }
 }
