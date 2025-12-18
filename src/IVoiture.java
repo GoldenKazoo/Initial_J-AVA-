@@ -1,27 +1,23 @@
 import java.awt.Color;
 
 public interface IVoiture {
+    
+    public void moove();
 
-    String who();
-
-    Color getColor();
+    void accelerate();
+    void decelerate();
 
     int getGasLeft();
 
-    void decreaseGas(int nb);
-
     int getPositionIndex();
-
     int getPosition();
-
-    void setPosition(int position);
-
-    void moove(int random_nb, int pisteSize);
 
     int get_laps();
 
-    void set_state(State new_state);
+    Color getColor();
+    String who();
 
-    State get_state();
 
+    //public int getPosition();
+    public void setPosition(int position);
 }

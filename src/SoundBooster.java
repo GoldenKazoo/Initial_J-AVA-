@@ -1,18 +1,13 @@
-import java.awt.Color;
-
-public class SoundBooster extends VoitureDecorator
-{
-
-    public SoundBooster(IVoiture voiture) {
-        super(voiture);
-    }
+public class SoundBooster extends VoitureDecorator {
     
-    public void moove(int random_nb, int pisteSize)
-    {
-        this.voiture.moove(random_nb, pisteSize);
-        if(this.voiture.get_state().get_name().equals("BOOST"))
-        {
-            System.out.println("VROOOOOOOOOOOOOOOOOOOM");
-        }
+    public SoundBooster(IVoiture v){
+        super(v);
+    }
+
+    @Override
+    public void accelerate() {
+        // TODO Auto-generated method stub
+        super.accelerate();
+        System.out.println("VROOUUUUM !");
     }
 }

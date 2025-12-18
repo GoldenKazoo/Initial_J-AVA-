@@ -61,7 +61,8 @@ public class DashboardView extends JFrame implements Observateur {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                voiture.get_state().decelerate(voiture);
+                //voiture.state.decelerate(voiture); // changement
+                voiture.decelerate();
             }
         });
 
@@ -69,7 +70,8 @@ public class DashboardView extends JFrame implements Observateur {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                voiture.get_state().accelerate(voiture);
+                //voiture.state.accelerate(voiture); //
+                voiture.accelerate();
             }
         });
         setVisible(true);
