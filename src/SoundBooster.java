@@ -1,6 +1,6 @@
-public class BoosterVoiture extends DecoratedVoiture {
+public class SoundBooster extends VoitureDecorator {
     
-    public BoosterVoiture(IVoiture v){
+    public SoundBooster(IVoiture v){
         super(v);
     }
 

@@ -1,4 +1,4 @@
-public class Drunk extends DecoratedVoiture
+public class Drunk extends VoitureDecorator
 {
     boolean forward = true;
 

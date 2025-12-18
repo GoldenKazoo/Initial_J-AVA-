@@ -1,10 +1,10 @@
 import java.awt.Color;
 
-public abstract class DecoratedVoiture implements IVoiture{
+public abstract class VoitureDecorator implements IVoiture{
 
     protected IVoiture voiture;
 
-    public DecoratedVoiture(IVoiture v){
+    public VoitureDecorator(IVoiture v){
         this.voiture = v;
     }
 
