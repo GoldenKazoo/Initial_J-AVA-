@@ -33,7 +33,7 @@ public class App
         
         int i = 0;
 
-        while (i < 100000)
+        while (true)
         {
             if (!game.is_paused())
             {

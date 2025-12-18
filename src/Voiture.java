@@ -4,7 +4,7 @@ public class Voiture implements IVoiture
 {
     private String name;
     private int position = 0;
-    private int gas_left = 60;
+    private int gas_left = 60000;
     private Color color;
     private int laps = 0;
     public State state;
@@ -37,7 +37,7 @@ public class Voiture implements IVoiture
         System.out.println(name + " a encore " + gas_left);
     }
 
-    public int getPositionIndex() // Modulo positif
+    public int getPositionIndex()
     {
         if(position < 0){
             return position + 53;
@@ -81,4 +81,11 @@ public class Voiture implements IVoiture
     public void decelerate() {
         state.decelerate(this);
     }
+
+    @Override
+    public State get_state() {
+        return state;
+    }
+    
+    
 }

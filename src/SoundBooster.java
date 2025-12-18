@@ -5,9 +5,25 @@ public class SoundBooster extends VoitureDecorator {
     }
 
     @Override
-    public void accelerate() {
-        // TODO Auto-generated method stub
+    public void accelerate()
+    {
         super.accelerate();
         System.out.println("VROOUUUUM !");
     }
+
+    @Override
+    public void decreaseGas(int nb) {
+        this.decreaseGas(nb);
+    }
+
+    @Override
+    public void set_state(State new_state) {
+        voiture.set_state(new_state);
+    }
+    
+    @Override
+    public State get_state() {
+        return voiture.get_state();
+    }
+    
 }

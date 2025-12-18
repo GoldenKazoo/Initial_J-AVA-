@@ -34,4 +34,21 @@ public class HybrideVoiture extends VoitureDecorator {
         System.out.println("[i] New Battery Level : " + this.batteryLevel + "%");
     }
 
+    @Override
+    public void decreaseGas(int nb) {
+        voiture.decreaseGas(nb);;
+    }
+
+    @Override
+    public void set_state(State new_state) {
+        voiture.set_state(new_state);
+    }
+    
+    @Override
+    public State get_state() {
+        return voiture.get_state();
+    }
+    
+    
+
 }

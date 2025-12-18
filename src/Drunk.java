@@ -29,4 +29,20 @@ public class Drunk extends VoitureDecorator
             this.forward = false;
         }
     }
+
+    @Override
+    public void decreaseGas(int nb) {
+        this.decreaseGas(nb);
+    }
+
+    @Override
+    public void set_state(State new_state) {
+        voiture.set_state(new_state);
+    }
+    
+    @Override
+    public State get_state() {
+        return voiture.get_state();
+    }
+    
 }
