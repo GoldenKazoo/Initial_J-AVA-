@@ -9,8 +9,8 @@ public abstract class DecoratedVoiture implements IVoiture{
     }
 
     @Override
-    public void moove(int random_nb, int pisteSize) {
-        voiture.moove(random_nb, pisteSize);
+    public void moove() {
+        voiture.moove();
     }
 
     @Override

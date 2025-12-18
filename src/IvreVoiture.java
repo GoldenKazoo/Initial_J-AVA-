@@ -7,11 +7,11 @@ public class IvreVoiture extends DecoratedVoiture{
     }
 
     @Override
-    public void moove(int random_nb, int pisteSize) {
+    public void moove() {
         if(count % 2 == 0){
-            super.moove(random_nb, pisteSize);
+            super.moove();
         }else{
-            super.moove((-1) * random_nb, pisteSize);
+            super.moove();
         }
     }
 

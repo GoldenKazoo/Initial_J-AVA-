@@ -1,5 +1,4 @@
 import java.util.List;
-import java.util.Random;
 import java.util.ArrayList;
 import java.awt.Color;
 
@@ -7,7 +6,6 @@ public class GameObservable implements Observable
 {
     private List<Observateur> obs = new ArrayList<>();
     private List<IVoiture> car = new ArrayList<>();
-    private Random random_nb = new Random();
     private ArrayList<Coordonnee> piste = new ArrayList<>();
     private IVoiture[] ranking;
     private boolean paused = false;
@@ -19,7 +17,8 @@ public class GameObservable implements Observable
         {
             case 1:
                 //car.add(new Voiture("Rouge", Color.RED));
-                car.add(new IvreVoiture(new Voiture("Rouge", Color.RED)));
+                //car.add(new BoosterVoiture(new Voiture("Rouge", Color.RED)));
+                car.add(new Drunk(new Voiture("Rouge", Color.RED)));
                 break;
             case 2:
                 car.add(new Voiture("Rouge", Color.RED));
@@ -87,8 +86,8 @@ public class GameObservable implements Observable
         {
             if (v.getGasLeft() > 0)
             {
-                int step = random_nb.nextInt(6) + 1; // avance de 1 à 6 cases
-                v.moove(step, piste.size());
+                //int step = random_nb.nextInt(6) + 1; // avance de 1 à 6 cases
+                v.moove();
                 updateRanking();
             }
         }

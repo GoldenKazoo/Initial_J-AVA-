@@ -37,9 +37,13 @@ public class Voiture implements IVoiture
         System.out.println(name + " a encore " + gas_left);
     }
 
-    public int getPositionIndex()
+    public int getPositionIndex() // Modulo positif
     {
-        return position % 53;
+        if(position < 0){
+            return position + 53;
+        }else{
+            return position % 53;
+        }
     }
 
     public int getPosition()
@@ -52,7 +56,7 @@ public class Voiture implements IVoiture
       this.position = position;
     }
     
-    public void moove(int random_nb, int pisteSize)
+    public void moove()
     {
         state.moove(this);
     }

@@ -2,7 +2,7 @@ import java.awt.Color;
 
 public interface IVoiture {
     
-    public void moove(int random_nb, int pisteSize);
+    public void moove();
 
     void accelerate();
     void decelerate();
