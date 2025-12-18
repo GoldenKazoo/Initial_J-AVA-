@@ -9,23 +9,24 @@ public class GameObservable implements Observable {
     private IVoiture[] ranking;
     private boolean paused = false;
 
-    public GameObservable(int nb_voitures) {
+    public GameObservable(int nb_voitures, ArrayList<Integer> data)
+    {
         creerPiste();
         switch (nb_voitures) {
             case 1:
-                // car.add(new Voiture("Rouge", Color.RED));
-                // car.add(new BoosterVoiture(new Voiture("Rouge", Color.RED)));
-                // car.add(new Drunk(new Voiture("Rouge", Color.RED)));
-                car.add(new Drunk(new Voiture("Rouge", Color.RED)));
+                //car.add(new Voiture("Rouge", Color.RED));
+                //car.add(new BoosterVoiture(new Voiture("Rouge", Color.RED)));
+                //car.add(new Drunk(new Voiture("Rouge", Color.RED)));
+                car.add(decoratorSet(data.get(0), new Voiture("Rouge", Color.RED)));
                 break;
             case 2:
-                car.add(new Voiture("Rouge", Color.RED));
-                car.add(new Voiture("Bleu", Color.BLUE));
+                car.add(decoratorSet(data.get(0), new Voiture("Rouge", Color.RED)));
+                car.add(decoratorSet(data.get(1), new Voiture("Bleu", Color.BLUE)));
                 break;
             case 3:
-                car.add(new Drunk (new Voiture("Rouge", Color.RED)));
-                car.add(new Voiture("Bleu", Color.BLUE));
-                car.add(new Voiture("Orange", Color.ORANGE));
+                car.add(decoratorSet(data.get(0), new Voiture("Rouge", Color.RED)));
+                car.add(decoratorSet(data.get(1), new Voiture("Bleu", Color.BLUE)));
+                car.add(decoratorSet(data.get(2), new Voiture("Orange", Color.ORANGE)));
                 break;
         }
         createRanking();
@@ -164,4 +165,15 @@ public class GameObservable implements Observable {
     
     
 
+    public IVoiture decoratorSet(int i, Voiture v){
+        if(i == 1){
+            return new SoundBooster(v);
+        }else if(i == 2){
+            return new Drunk(v);
+        }else if(i == 3){
+            return new HybrideVoiture(v);
+        }else{
+            return v;
+        }
+    }
 }

@@ -8,7 +8,7 @@ public class HybrideVoiture extends VoitureDecorator {
 
     @Override
     public void moove() {
-        if (batteryLevel > 0) {
+        if (batteryLevel >= 10) {
             int gasBefore = voiture.getGasLeft(); 
             
             voiture.moove(); 
