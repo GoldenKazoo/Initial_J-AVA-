@@ -9,7 +9,7 @@ public class App
         int nbVoitures = 0;
         ArrayList<Integer> data = new ArrayList<>();
 
-        while (nbVoitures < 1 || nbVoitures > 3) //loop de demande, l'user doit entrer dans ce scope de nb
+        while (nbVoitures < 1 || nbVoitures > 3)
         {
             String input = JOptionPane.showInputDialog(
                 null, 
@@ -19,7 +19,7 @@ public class App
             );
             if (input == null)
             {
-                return; // si l'utilisateur cancel, fin du programme
+                return;
             }
             nbVoitures = Integer.parseInt(input);
 
@@ -48,15 +48,12 @@ public class App
         {
             new DashboardView(game, v);
         }
-        
-        int i = 0;
 
         while (!game.is_finished())
         {
             if (!game.is_paused())
             {
                 game.moove_car();
-                i++;
             }
             try
             {

@@ -96,7 +96,7 @@ public class GameView extends JComponent implements Observateur
     }
 
     private void drawCars(Graphics g, List<IVoiture> voitures, List<Coordonnee> piste){
-        //Dessier voitures
+        //Dessiner voitures
         int decalage = 10;
         for (IVoiture v : voitures)
         {

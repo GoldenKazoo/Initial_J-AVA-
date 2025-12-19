@@ -101,19 +101,4 @@ public class DashboardView extends JFrame implements Observateur {
             stateLabel.setText("");
         }
     }
-    
-
-    private void updateStateMessage() {
-        String msg = voiture.getStateMessage();
-        if (msg == null)
-        {
-            stateLabel.setText("");
-        }
-        else
-        {
-            stateLabel.setText(msg);
-        }
-    }
-    
-    
 }

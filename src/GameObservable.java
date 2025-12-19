@@ -15,9 +15,6 @@ public class GameObservable implements Observable {
         creerPiste();
         switch (nb_voitures) {
             case 1:
-                //car.add(new Voiture("Rouge", Color.RED));
-                //car.add(new BoosterVoiture(new Voiture("Rouge", Color.RED)));
-                //car.add(new Drunk(new Voiture("Rouge", Color.RED)));
                 car.add(decoratorSet(data.get(0), new Voiture("Rouge", Color.RED)));
                 break;
             case 2:
@@ -147,7 +144,6 @@ public class GameObservable implements Observable {
     private boolean checkDerapage(IVoiture v, int step) {
         int circuitSize = piste.size();
         int posAvant = (v.getPosition() - step + circuitSize) % circuitSize;
-        int posApres = (v.getPosition() + circuitSize) % circuitSize;
     
         int direction = step >= 0 ? 1 : -1;
     

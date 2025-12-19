@@ -2,6 +2,7 @@ import java.util.Random;
 
 public class StateNormal implements State
 {
+    @Override
     public void moove(Voiture context)
     {
         Random rdm;
@@ -17,11 +18,12 @@ public class StateNormal implements State
         }
         context.setPosition(position);
     }
-
+    @Override
     public void accelerate(Voiture context)
     {
         context.set_state(new StateBoost());
     }
+    @Override
     public void decelerate(Voiture context)
     {
         context.set_state(new StateLow());
