@@ -19,9 +19,9 @@ public class Drunk extends VoitureDecorator
         {
             int newPos = posAvant - deplacement;
             voiture.setPosition(newPos);
-            System.out.println("POSITION BRUTE DE LA VOITURE : " + voiture.getPosition());
-            System.out.println("POSITION INDEXE DE LA VOITURE : " + voiture.getPositionIndex());
-            System.out.println("LE pilote est completement ivre, 1 verre d'alcool, 1 verre d'eau !");
+            // System.out.println("POSITION BRUTE DE LA VOITURE : " + voiture.getPosition());
+            // System.out.println("POSITION INDEXE DE LA VOITURE : " + voiture.getPositionIndex());
+            // System.out.println("LE pilote est completement ivre, 1 verre d'alcool, 1 verre d'eau !");
             this.forward = true;
         }
         else

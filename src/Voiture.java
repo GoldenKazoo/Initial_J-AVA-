@@ -4,7 +4,7 @@ public class Voiture implements IVoiture
 {
     private String name;
     private int position = 0;
-    private int gas_left = 60000;
+    private int gas_left = 60;
     private Color color;
     private int laps = 0;
     public State state;

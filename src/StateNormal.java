@@ -9,18 +9,15 @@ public class StateNormal implements State
 
         position = context.getPosition();
         rdm = new Random();
-        if (context.getGasLeft() > 0)
+        if (context.getGasLeft() >= 2)
         {
             position += rdm.nextInt(1, 7); // 6 inclus
+
             context.decreaseGas(2);
         }
         context.setPosition(position);
     }
 
-    public void show_state(Voiture context)
-    {
-
-    }
     public void accelerate(Voiture context)
     {
         context.set_state(new StateBoost());

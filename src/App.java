@@ -51,7 +51,7 @@ public class App
         
         int i = 0;
 
-        while (true)
+        while (!game.is_finished())
         {
             if (!game.is_paused())
             {

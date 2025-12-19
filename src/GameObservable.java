@@ -8,6 +8,7 @@ public class GameObservable implements Observable {
     private ArrayList<Coordonnee> piste = new ArrayList<>();
     private IVoiture[] ranking;
     private boolean paused = false;
+    private boolean finished = false;
 
     public GameObservable(int nb_voitures, ArrayList<Integer> data)
     {
@@ -104,6 +105,10 @@ public class GameObservable implements Observable {
         return paused;
     }
 
+    public boolean is_finished()
+    {
+        return finished;
+    }
     public void toggle_pause() {
         paused = !paused;
     }
@@ -183,7 +188,7 @@ public class GameObservable implements Observable {
         for (IVoiture v : car) {
             if (v.get_laps() >= 3) {
                 System.out.println("Finished ! Gagnant : " + v.who());
-                paused = true;
+                finished = true;
                 notify_obs();
                 return true;
             }

@@ -6,11 +6,11 @@ public class StateBoost implements State
         Random rdm = new Random();
         int position = context.getPosition();
     
-        if (context.getGasLeft() > 0) {
+        if (context.getGasLeft() >= 5) {
             
             int step = rdm.nextInt(5,11);
             position += step;
-            context.decreaseGas(10);
+            context.decreaseGas(5);
         }
     
         context.setPosition(position);

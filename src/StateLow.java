@@ -9,7 +9,7 @@ public class StateLow implements State
 
         position = context.getPosition();
         rdm = new Random();
-        if (context.getGasLeft() > 0)
+        if (context.getGasLeft() >= 1)
         {
             position += rdm.nextInt(1, 4); // 3 inclus 
             context.decreaseGas(1);
