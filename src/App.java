@@ -2,6 +2,12 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import core.GameObservable;
+import model.IVoiture;
+import view.Classement;
+import view.DashboardView;
+import view.GameView;
+
 public class App {
     public static void main(String[] args) {
         int nbVoitures = 0;
