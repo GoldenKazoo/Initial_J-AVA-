@@ -7,6 +7,7 @@ public class DashboardView extends JFrame implements Observateur {
     private GameObservable game;
     private JLabel gasLabel;
     private JLabel lapLabel;
+    private JLabel stateLabel;
     private JButton pauseButton;
     private JButton slowdown;
     private JButton speedup;
@@ -21,7 +22,7 @@ public class DashboardView extends JFrame implements Observateur {
         setTitle("Tableau de bord - " + v.who());
         setSize(250, 150);
         getContentPane().setBackground(v.getColor());
-        setLayout(new GridLayout(5, 1));
+        setLayout(new GridLayout(6, 1));
         if (this.voiture.getColor() == Color.RED)
         {
             setLocation(1100, 100);
@@ -49,6 +50,9 @@ public class DashboardView extends JFrame implements Observateur {
         add(slowdown);
         add(speedup);
 
+        stateLabel = new JLabel("");
+        stateLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        add(stateLabel);
         pauseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
@@ -57,23 +61,33 @@ public class DashboardView extends JFrame implements Observateur {
             }
         });
 
-        slowdown.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                //voiture.state.decelerate(voiture); // changement
-                voiture.decelerate();
-            }
-        });
-
         speedup.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                //voiture.state.accelerate(voiture); //
+            public void actionPerformed(ActionEvent e) {
+                String msg = voiture.getStateMessage();
+                if (msg != null) {
+                    stateLabel.setText(msg);
+                } else {
+                    stateLabel.setText("");
+                }
                 voiture.accelerate();
             }
         });
+        
+        slowdown.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String msg = voiture.getStateMessage();
+                if (msg != null)
+                {
+                    stateLabel.setText(msg);
+                } else {
+                    stateLabel.setText("");
+                }
+                voiture.decelerate();
+            }
+        });
+        
         setVisible(true);
     }
 
@@ -82,5 +96,24 @@ public class DashboardView extends JFrame implements Observateur {
     {
         gasLabel.setText("Carburant restant : " + voiture.getGasLeft());
         lapLabel.setText("Tours réalisés : " + voiture.get_laps());
+    
+        if (voiture.getStateMessage() == null) {
+            stateLabel.setText("");
+        }
     }
+    
+
+    private void updateStateMessage() {
+        String msg = voiture.getStateMessage();
+        if (msg == null)
+        {
+            stateLabel.setText("");
+        }
+        else
+        {
+            stateLabel.setText(msg);
+        }
+    }
+    
+    
 }

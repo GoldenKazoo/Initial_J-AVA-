@@ -50,5 +50,8 @@ public class HybrideVoiture extends VoitureDecorator {
     }
     
     
-
+    public String getStateMessage()
+    {
+        return voiture.getStateMessage();
+    }
 }

@@ -20,6 +20,8 @@ public class StateStoped implements State
     }
     public void decelerate(Voiture context)
     {
-        System.out.println("Can't get slowe ! Planing to be a turtle ?");
+    }
+    public String get_action_message() {
+        return "Voiture arretee : impossible de ralentir plus";
     }
 }

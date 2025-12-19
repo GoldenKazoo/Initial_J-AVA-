@@ -87,5 +87,8 @@ public class Voiture implements IVoiture
         return state;
     }
     
+    public String getStateMessage() {
+        return state.get_action_message();
+    }
     
 }

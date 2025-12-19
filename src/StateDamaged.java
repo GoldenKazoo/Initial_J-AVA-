@@ -1,31 +1,27 @@
-public class StateDamaged implements State
-{
+public class StateDamaged implements State {
+
     int turns = 0;
 
-    public void moove(Voiture context)
-    {
-        if (turns < 5)
-        {
+    @Override
+    public void moove(Voiture context) {
+        if (turns < 5) {
             turns++;
-        }
-        else
-        {
+        } else {
             turns = 0;
             context.set_state(new StateLow());
         }
     }
 
-
-    public void show_state(Voiture context)
-    {
-
+    @Override
+    public void accelerate(Voiture context) {
     }
-    public void accelerate(Voiture context)
-    {
-        System.out.println("You are broken, skill issue !");
+
+    @Override
+    public void decelerate(Voiture context) {
     }
-    public void decelerate(Voiture context)
-    {
-        System.out.println("You are broken, skill issue !");
+
+    @Override
+    public String get_action_message() {
+        return "Voiture endommagee : impossible d'accélerer ou de ralentir";
     }
 }

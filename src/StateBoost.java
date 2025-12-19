@@ -10,7 +10,7 @@ public class StateBoost implements State
             
             int step = rdm.nextInt(5,11);
             position += step;
-            context.decreaseGas(5);
+            context.decreaseGas(10);
         }
     
         context.setPosition(position);
@@ -33,5 +33,10 @@ public class StateBoost implements State
     public void decelerate(Voiture context)
     {
         context.set_state(new StateNormal());
+    }
+
+    @Override
+    public String get_action_message() {
+        return "Voiture boostee : impossible d'accélerer plus";
     }
 }

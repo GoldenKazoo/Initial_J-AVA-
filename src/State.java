@@ -1,8 +1,11 @@
 public interface State
-
 {
     void moove(Voiture car);
-    void show_state(Voiture car);
-    public void accelerate(Voiture car);
-    public void decelerate(Voiture car);
+    void accelerate(Voiture car);
+    void decelerate(Voiture car);
+
+    default String get_action_message()
+    {
+        return null;
+    }
 }

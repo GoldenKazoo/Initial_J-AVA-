@@ -85,6 +85,7 @@ public class GameObservable implements Observable {
             }
         }
         notify_obs();
+        setEnd();
     }
 
     private void updateRanking() {
@@ -176,4 +177,18 @@ public class GameObservable implements Observable {
             return v;
         }
     }
+
+    public boolean setEnd()
+    {
+        for (IVoiture v : car) {
+            if (v.get_laps() >= 3) {
+                System.out.println("Finished ! Gagnant : " + v.who());
+                paused = true;
+                notify_obs();
+                return true;
+            }
+        }
+        return false;
+    }
+    
 }

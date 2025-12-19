@@ -28,4 +28,5 @@ public interface IVoiture {
 
     void decelerate();
 
+    public String getStateMessage();
 }

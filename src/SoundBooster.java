@@ -26,4 +26,8 @@ public class SoundBooster extends VoitureDecorator {
         return voiture.get_state();
     }
     
+    public String getStateMessage()
+    {
+        return voiture.getStateMessage();
+    }
 }
